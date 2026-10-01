@@ -1,0 +1,358 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>KKH Revival Project</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palette — warm blush meets editorial black */
+  --bg: #FEFBF8;
+  --bg-card: #FFF5EE;
+  --fg: #1A1017;
+  --fg-muted: #6B5C64;
+  --accent: #C4467E;
+  --accent-soft: #F2D4E0;
+  --gold: #B8860B;
+  --gold-soft: #F5E6C8;
+  --divider: #E8DDD5;
+  --danger: #B33A3A;
+  --danger-soft: #FCEAEA;
+  --info-bg: #EDE7F6;
+  --info-fg: #4A148C;
+  --radius: 10px;
+
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #110D0F;
+    --bg-card: #1C1519;
+    --fg: #F0EAE6;
+    --fg-muted: #A0939A;
+    --accent: #E06B9E;
+    --accent-soft: #3A1A2A;
+    --gold: #D4A843;
+    --gold-soft: #2A2010;
+    --divider: #2E2328;
+    --danger: #E06060;
+    --danger-soft: #2A1414;
+    --info-bg: #1E162A;
+    --info-fg: #C9A8F0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #110D0F;
+  --bg-card: #1C1519;
+  --fg: #F0EAE6;
+  --fg-muted: #A0939A;
+  --accent: #E06B9E;
+  --accent-soft: #3A1A2A;
+  --gold: #D4A843;
+  --gold-soft: #2A2010;
+  --divider: #2E2328;
+  --danger: #E06060;
+  --danger-soft: #2A1414;
+  --info-bg: #1E162A;
+  --info-fg: #C9A8F0;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  padding-inline: 20px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; }
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 2.5rem;
+}
+.header-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  text-wrap: balance;
+  margin: 0 0 0.8rem;
+}
+.header p {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── Notice Banner ── */
+.notice {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.notice strong { color: var(--accent); }
+
+/* ── Sections ── */
+.section { margin-bottom: 2.5rem; }
+.section h2 {
+  font-size: 1.35rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--divider);
+}
+
+/* ── FAQ items ── */
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+.faq-q {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+  color: var(--fg);
+}
+.faq-a {
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+.faq-a strong { color: var(--fg); font-weight: 600; }
+
+/* ── Download cards ── */
+.downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.dl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.dl-card-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+}
+.dl-card-desc {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  margin: 0;
+}
+.dl-card.mod { border-left: 3px solid var(--gold); }
+.dl-card.mod .dl-card-name { color: var(--gold); }
+.dl-card.tester { border-left: 3px solid var(--danger); opacity: 0.6; }
+.dl-card.normal { border-left: 3px solid var(--accent); }
+
+/* ── Warning box ── */
+.warning-box {
+  background: var(--danger-soft);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.warning-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.warning-box p + p { margin-top: 0.75rem; }
+.warning-title {
+  font-weight: 700;
+  color: var(--danger);
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Tip box ── */
+.tip-box {
+  background: var(--info-bg);
+  border-radius: var(--radius);
+  padding: 1.15rem 1.35rem;
+  margin: 1.25rem 0;
+}
+.tip-box p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--info-fg);
+  line-height: 1.6;
+}
+.tip-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 0.35rem;
+  color: var(--info-fg);
+}
+
+/* ── Steps ── */
+.steps { counter-reset: step; }
+.step {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step p { margin: 0 0 0.5rem; font-size: 0.92rem; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--divider);
+  margin-top: 1rem;
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+}
+</style>
+
+<div class="header">
+  <div class="header-label">Community Masterpost</div>
+  <h1>Kim Kardashian: Hollywood Revival Project</h1>
+  <p>Everything you need to know before downloading. Please read this entire post before asking questions.</p>
+</div>
+
+<div class="notice">
+  <strong>What is this project?</strong> The KKH Revival Project is a fan-led effort to bring back <em>Kim Kardashian: Hollywood</em> as a playable game through a custom APK. The game's original servers were shut down, and this project works to restore and rebuild as much of the experience as possible. It's a work in progress — many features are being recovered, and some may never be fully restored.
+</div>
+
+<!-- ── FAQ ── -->
+<div class="section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <p class="faq-q">Where is it available?</p>
+    <p class="faq-a"><strong>Android phones and tablets.</strong> You can also play on a Windows laptop or PC by downloading an Android emulator such as BlueStacks and running the APK through that.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Why isn't it available on iOS?</p>
+    <p class="faq-a">iOS makes sideloading apps extremely difficult by design. Apple's operating system doesn't allow you to simply install an APK file the way Android does — it requires signed IPAs, developer certificates, or jailbreaking, all of which are unreliable and constantly changing. Because of these restrictions, an iOS version is not currently feasible.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">When is the next version coming out?</p>
+    <p class="faq-a">There is no set release date. Updates are announced when they're ready. Keep an eye on the announcements channel for the latest news.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Will I have to reinstall and wipe my data again on the next version?</p>
+    <p class="faq-a">Possibly. This is not yet known and will depend on the changes made. Installation instructions will be provided with each new release.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">I found a bug. What do I do?</p>
+    <p class="faq-a">Report it in the <strong>bug reports channel</strong> in the <strong>Development server</strong>. Please include as much detail as you can — what you were doing, what happened, and any screenshots if possible.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Why isn't a certain feature working?</p>
+    <p class="faq-a">Many parts of the game are still incomplete. Some of the original game's assets may be permanently irrecoverable. Stay up to date with what the team finds by regularly checking the <strong>announcements channel</strong>.</p>
+  </div>
+</div>
+
+<!-- ── Downloads ── -->
+<div class="section">
+  <h2>Downloads</h2>
+  <p style="font-size:0.92rem; color:var(--fg-muted); margin: 0 0 0.75rem;">Download the APK from the Google Drive folder linked below. Three versions are available:</p>
+  <a href="https://drive.google.com/drive/folders/195v5J-RHn3UCWMP-DHQVn2RmMY4RC7ix" target="_blank" rel="noopener" style="display:inline-block; background:var(--accent); color:#fff; font-weight:600; font-size:0.9rem; padding:0.6rem 1.25rem; border-radius:var(--radius); text-decoration:none; margin-bottom:1rem;">Open Google Drive Folder</a>
+
+  <div class="downloads">
+    <div class="dl-card mod">
+      <p class="dl-card-name">Modded Version</p>
+      <p class="dl-card-desc">Unlimited energy, K-Stars, and all clothes unlocked. A mod menu version may be made available later.</p>
+    </div>
+    <div class="dl-card tester">
+      <p class="dl-card-name">Tester Version — Do Not Download</p>
+      <p class="dl-card-desc">This version is for developers and testers only. It is not intended for general use.</p>
+    </div>
+    <div class="dl-card normal">
+      <p class="dl-card-name">Normal Version</p>
+      <p class="dl-card-desc">Standard gameplay experience. There is currently no way to purchase energy or K-Stars in-game.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Upgrading ── -->
+<div class="section">
+  <h2>Upgrading from a Previous Version</h2>
+  <p style="font-size:0.92rem;">If you have any previous version of the APK installed (e.g. v1.6), follow these steps <strong>before</strong> installing the new one.</p>
+
+  <div class="steps">
+    <div class="step">
+      <p><strong>Uninstall the old APK.</strong> Press and hold the app icon (on an emulator, this may be a right-click) and select <em>Uninstall</em>. This will reset your data — that is intentional and necessary.</p>
+    </div>
+    <div class="step">
+      <p><strong>Download and install the new version</strong> from the Drive link provided in the server.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <p class="warning-title">⚠ Do not skip the uninstall</p>
+    <p>If you install the new version over the old one without uninstalling first, your progress may appear to carry over — but you will encounter <strong>unfixable bugs</strong>, and your main storyline will have <strong>locks that cannot be removed</strong>.</p>
+    <p>The developers will not fix these issues, as they cannot be responsible for problems caused by not following the installation instructions.</p>
+  </div>
+</div>
+
+<!-- ── Gameplay Tips ── -->
+<div class="section">
+  <h2>Important Gameplay Tips</h2>
+
+  <div class="tip-box">
+    <p class="tip-title">Complete Kim's house quests immediately</p>
+    <p>If you receive a quest to go and talk to Kim at her house, do it straight away. Don't let these quests pile up — having multiple active at once can cause conflicting goals and break your quest progression.</p>
+  </div>
+
+  <div class="tip-box">
+    <p class="tip-title">Do the main storyline first</p>
+    <p>Avoid taking on VIP quests until you've progressed through the main storyline. Doing VIP quests too early can cause conflicts. This is a legacy issue from the original Glu code and may be addressed in future versions.</p>
+  </div>
+</div>
+
+<div class="footer">
+  KKH Revival Project — Fan-made community effort
+</div>
+
+</body></html>
